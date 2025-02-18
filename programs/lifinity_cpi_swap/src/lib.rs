@@ -1,5 +1,4 @@
 pub mod states;
-mod instruction;
 
 use anchor_lang::prelude::*;
 use anchor_lang::solana_program::{program::invoke_signed, system_instruction};
