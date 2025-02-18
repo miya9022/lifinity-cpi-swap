@@ -1,4 +1,5 @@
 pub mod states;
+mod instruction;
 
 use anchor_lang::prelude::*;
 use anchor_lang::solana_program::{program::invoke_signed, system_instruction};
@@ -29,7 +30,7 @@ pub mod lifinity_cpi_swap {
                 AccountMeta::new_readonly(ctx.accounts.oracle_sub.key(), false),
                 AccountMeta::new_readonly(ctx.accounts.oracle_pc.key(), false),
             ],
-            data: lifinity_swap_v2::instruction::Swap {
+            data: lifinity_cpi_swap::instruction::Swap {
                 amount_in,
                 minimum_amount_out: min_amount_out,
             }
