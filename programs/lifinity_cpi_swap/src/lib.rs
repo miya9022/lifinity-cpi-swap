@@ -31,7 +31,7 @@ pub mod lifinity_cpi_swap {
             ],
             data: lifinity_cpi_swap::instruction::Swap {
                 amount_in,
-                minimum_amount_out: min_amount_out,
+                min_amount_out,
             }
               .try_to_vec()?,
         };
