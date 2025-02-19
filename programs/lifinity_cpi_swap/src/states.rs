@@ -1,6 +1,8 @@
 use anchor_lang::prelude::*;
 
-#[account]
+#[account(zero_copy(unsafe))]
+#[repr(packed)]
+#[derive(Default, Debug)]
 pub struct LifinityPool {
 	pub initializer_key: Pubkey,
 	pub initializer_deposit_token_account: Pubkey,
@@ -33,7 +35,7 @@ pub struct LifinityPool {
 	pub amm_p_temp5: Pubkey,
 }
 
-#[derive(AnchorSerialize, AnchorDeserialize, Clone, Debug)]
+#[derive(AnchorSerialize, AnchorDeserialize, Copy, Clone, Debug, Default)]
 pub struct AmmFees {
 	pub trade_fee_numerator: u64,
 	pub trade_fee_denominator: u64,
@@ -45,13 +47,13 @@ pub struct AmmFees {
 	pub host_fee_denominator: u64,
 }
 
-#[derive(AnchorSerialize, AnchorDeserialize, Clone, Debug)]
+#[derive(AnchorSerialize, AnchorDeserialize, Copy, Clone, Debug, Default)]
 pub struct AmmCurve {
 	pub curve_type: u8,
 	pub curve_parameters: u64,
 }
 
-#[derive(AnchorSerialize, AnchorDeserialize, Clone, Debug)]
+#[derive(AnchorSerialize, AnchorDeserialize, Copy, Clone, Debug, Default)]
 pub struct AmmConfig {
 	pub last_price: u64,
 	pub last_balanced_price: u64,
