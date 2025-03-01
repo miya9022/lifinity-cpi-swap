@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-#[account(repr = [143, 245, 200, 17, 74, 214, 196, 135])]
+#[account(discriminator = [143, 245, 200, 17, 74, 214, 196, 135])]
 pub struct LifinityPool {
 	pub initializer_key: Pubkey,
 	pub initializer_deposit_token_account: Pubkey,
