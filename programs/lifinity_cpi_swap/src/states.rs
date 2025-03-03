@@ -15,6 +15,7 @@ pub struct LifinityPool {
 	pub freeze_deposit: u8,
 	pub freeze_withdraw: u8,
 	pub base_decimals: u8,
+	pub _padding: [u8; 2],
 	pub token_program_id: Pubkey,
 	pub token_a_account: Pubkey,
 	pub token_b_account: Pubkey,
