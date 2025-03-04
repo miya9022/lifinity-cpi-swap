@@ -2,42 +2,35 @@ use anchor_lang::prelude::*;
 
 #[derive(AnchorSerialize, AnchorDeserialize, Clone, Debug, Default)]
 pub struct LifinityPool {
-	pub initializer_key: Pubkey,
-	pub initializer_deposit_token_account: Pubkey,
-	pub initializer_receive_token_account: Pubkey,
-	pub initializer_amount: u64,
-	pub taker_amount: u64,
-	pub is_initialized: bool,
-	pub bump_seed: u8,
-	pub freeze_trade: u8,
-	pub freeze_deposit: u8,
-	pub freeze_withdraw: u8,
-	pub base_decimals: u8,
-
-	// first padding
-	pub _padding: [u8; 2],
-	pub token_program_id: Pubkey,
-	pub token_a_account: Pubkey,
-	pub token_b_account: Pubkey,
-	pub pool_mint: Pubkey,
-	pub token_a_mint: Pubkey,
-	pub token_b_mint: Pubkey,
-	pub fee_account: Pubkey,
-	pub oracle_main_account: Pubkey,
-	pub oracle_sub_account: Pubkey,
-	pub oracle_pc_account: Pubkey,
-	pub fees: AmmFees,
-	pub curve: AmmCurve,
-
-	// second padding
-	pub _curve_padding: [u8; 7],
-
-	pub config: AmmConfig,
-	pub amm_p_temp1: Pubkey,
-	pub amm_p_temp2: Pubkey,
-	pub amm_p_temp3: Pubkey,
-	pub amm_p_temp4: Pubkey,
-	pub amm_p_temp5: Pubkey,
+	pub initializer_key: Pubkey,                        // 32 bytes
+	pub initializer_deposit_token_account: Pubkey,      // 32 bytes
+	pub initializer_receive_token_account: Pubkey,      // 32 bytes
+	pub initializer_amount: u64,                        // 8 bytes
+	pub taker_amount: u64,                              // 8 bytes
+	pub is_initialized: bool,                           // 1 byte
+	pub bump_seed: u8,                                  // 1 byte
+	pub freeze_trade: u8,                               // 1 byte
+	pub freeze_deposit: u8,                             // 1 byte
+	pub freeze_withdraw: u8,                            // 1 byte
+	pub base_decimals: u8,                              // 1 byte
+	pub token_program_id: Pubkey,                       // 32 bytes
+	pub token_a_account: Pubkey,                        // 32 bytes
+	pub token_b_account: Pubkey,                        // 32 bytes
+	pub pool_mint: Pubkey,                              // 32 bytes
+	pub token_a_mint: Pubkey,                           // 32 bytes
+	pub token_b_mint: Pubkey,                           // 32 bytes
+	pub fee_account: Pubkey,                            // 32 bytes
+	pub oracle_main_account: Pubkey,                    // 32 bytes
+	pub oracle_sub_account: Pubkey,                     // 32 bytes
+	pub oracle_pc_account: Pubkey,                      // 32 bytes
+	pub fees: AmmFees,                                  // 64 bytes
+	pub curve: AmmCurve,                                // 9 bytes
+	pub config: AmmConfig,                              // 232 bytes
+	pub amm_p_temp1: Pubkey,                            // 32 bytes
+	pub amm_p_temp2: Pubkey,                            // 32 bytes
+	pub amm_p_temp3: Pubkey,                            // 32 bytes
+	pub amm_p_temp4: Pubkey,                            // 32 bytes
+	pub amm_p_temp5: Pubkey,                            // 32 bytes
 }
 
 #[derive(AnchorSerialize, AnchorDeserialize, Copy, Clone, Debug, Default)]
