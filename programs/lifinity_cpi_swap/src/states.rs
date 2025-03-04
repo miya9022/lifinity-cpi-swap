@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-#[derive(AnchorSerialize, AnchorDeserialize, Clone, Debug, PartialEq)]
+#[derive(AnchorSerialize, AnchorDeserialize, Clone, Debug, Default)]
 pub struct LifinityPool {
 	pub initializer_key: Pubkey,
 	pub initializer_deposit_token_account: Pubkey,
