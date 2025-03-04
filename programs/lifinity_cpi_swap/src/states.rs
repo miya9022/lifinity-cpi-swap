@@ -1,8 +1,6 @@
 use anchor_lang::prelude::*;
 
-const LIFINITY_DISCRIMINATOR: [u8; 8] = [143, 245, 200, 17, 74, 214, 196, 135];
-
-#[account(discriminator = LIFINITY_DISCRIMINATOR)]
+#[derive(AnchorSerialize, AnchorDeserialize, Clone, Debug, PartialEq)]
 pub struct LifinityPool {
 	pub initializer_key: Pubkey,
 	pub initializer_deposit_token_account: Pubkey,
@@ -15,6 +13,8 @@ pub struct LifinityPool {
 	pub freeze_deposit: u8,
 	pub freeze_withdraw: u8,
 	pub base_decimals: u8,
+
+	// first padding
 	pub _padding: [u8; 2],
 	pub token_program_id: Pubkey,
 	pub token_a_account: Pubkey,
@@ -28,6 +28,10 @@ pub struct LifinityPool {
 	pub oracle_pc_account: Pubkey,
 	pub fees: AmmFees,
 	pub curve: AmmCurve,
+
+	// second padding
+	pub _curve_padding: [u8; 7],
+
 	pub config: AmmConfig,
 	pub amm_p_temp1: Pubkey,
 	pub amm_p_temp2: Pubkey,
